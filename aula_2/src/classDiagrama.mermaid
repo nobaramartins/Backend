@@ -1,12 +1,11 @@
 classDiagram
 
 class Paciente {
-Id:Long
+id:Long
 nome: String
 email: String
 telefone: String
-dataNascimento: dataNascimento
-grupoNascimento: dataNascimento
+dataNascimento: Date 
 grupoSanguineo: String
 sexo: String
 cep: String
@@ -17,7 +16,63 @@ estado: String
 
 class Atendimento {
 id: Long
+data: Date 
+hora: Date 
+valor: Double
+status: String
+observacao: String
 }
 
-Paciente --> Atendimento : Paciente
+class Profissional {
+id: Long
+nome: String
+registroConselho: String
+telefone: String
+email: String
+}
+
+class Convenio {
+id: Long
+nome: String
+razaoSocial: String
+cnpj: String
+represetante: String
+email: String
+telefone: String
+ativo: Boolean
+}
+
+class Unidade {
+id: Long
+nome: String
+endereco: String
+}
+
+class Especialidade {
+id: Long 
+nome: String
+}
+
+class Usuario {
+id: Long
+nomeCompleto: String
+nomeUsuario: String
+nomeUsuario: String
+senha: String
+ativo: Boolean
+papel: String
+}
+
+Paciente --> Atendimento : paciente
+Atendimento --> Profissional : profissional
+Atendimento --> Convenio : convenio
+Profissional --> Unidade: unidade
+Profissional --> Especialidade: especialidade
+
+
+
+Usuario 
+
+
+
 
